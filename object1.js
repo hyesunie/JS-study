@@ -41,3 +41,6 @@ function multiplyNumeriwc(obj) {
 multiplyNumeriwc(menu);
 
 console.log(menu);
+
+
+

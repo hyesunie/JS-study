@@ -50,4 +50,7 @@ let bag = {
 ### 객체 복제, 병합
 - 자바스크립트에서 지원하는 내장 메소드는 없음
 - 새로운 객체를 만든 다음 반복문을 이용해서 원시 수준까지 프로퍼티를 복제
-- Object.assign을 사용하는 방법도 있음
+- Object.assign을 사용하는 방법도 있음 : 얕은 복사(shallow copy)
+- 중첩 객체를 복제하기 위해서는 깊은 복사가 필요함!! 
+- (structured cloning algorithm)[https://html.spec.whatwg.org/multipage/structured-data.html#safe-passing-of-structured-data]
+- 또는 라이브러리 이용 (lodash의 메소드 _.cloneDeep(obj))
