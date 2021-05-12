@@ -54,3 +54,72 @@ let bag = {
 - 중첩 객체를 복제하기 위해서는 깊은 복사가 필요함!! 
 - (structured cloning algorithm)[https://html.spec.whatwg.org/multipage/structured-data.html#safe-passing-of-structured-data]
 - 또는 라이브러리 이용 (lodash의 메소드 _.cloneDeep(obj))
+
+
+
+
+## object3.js
+
+
+
+### method and this
+- 객체의 프로퍼티에 함수를 할당할 수 있음 -> 객체에게 행동 능력 부여
+- 이렇게 생성된 메소드는 객체에 저장된 정보에 접글 할 수 있어야함
+- 메소드 내부에서 `this` 키워드를 사용하면 객체에 접근 할 수 있다.
+- `this` 외에도 프로퍼티 키를 이용해서 객체에 접근 할 수 있지만 외부에서 프로퍼티 자체를 다른 값으로 변경하거나 덮어쓴다면 원치않는 값이 나옴
+- 모든 함수에서 `this`를 사용가능 함
+- `this`의 값은 런타임에 결정 됨
+- 화살표 함수는 일반 함수와 달리 고유한 this를 가지지 않음
+
+
+
+
+
+## object4.js
+
+
+
+### constructor function
+- 유사한 객체를 여러개 만들어야 할 떄 사용 함
+- 일반함수와 기술적인 차이는 없지만 두 관례를 따름
+  1. 함수 이름의 첫 글자는 대무자로 시작함
+  2. `new`연산자를 붙여 실행함
+- `new`를 사용해서 함수를 실행할 경우
+  1. 빈 객체를 반들어 `this`에 할당
+  2. 함 수 본문을 실행
+  3. `this`에 새로운 프로퍼티를 추가
+  4. `this`를 반환
+  ```
+  function User(name) {
+  // this = {};  (빈 객체가 암시적으로 만들어짐)
+
+  // 새로운 프로퍼티를 this에 추가함
+  this.name = name;
+  this.isAdmin = false;
+
+  // return this;  (this가 암시적으로 반환됨)
+} ```
+
+### new.target
+- new.target 프로퍼티를 사용하면 new와 함께 호출됐는지를 알 수 있음
+```
+function User() {
+  alert(new.target);
+}
+
+// "new" 없이 호출함
+User(); // undefined
+
+//"new"를 붙여 호출함
+new User(); // function User { ... }
+```
+
+### return
+- 생성자 함수에는 보통 `return`문이 없음
+- 반환해야할 것들이 모두 `this`에 저장 후 자동으로 반환 됨
+- `return`문이 존재할 경우
+    1. 객체 `return`, `this` 대신 객체가 반환
+    2. 원시형 `return`은 무시 됨
+
+
+
