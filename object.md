@@ -123,3 +123,11 @@ new User(); // function User { ... }
 
 
 
+
+
+## object5.js
+
+
+
+### optional chaining
+- 프로퍼티가 없는 중첩 객체를 에러 없이 안전하게 접근 가능
