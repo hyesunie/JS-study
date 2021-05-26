@@ -129,8 +129,34 @@ new User(); // function User { ... }
 
 
 
-### optional chaining
+### Optional chaining
 - 프로퍼티가 없는 중첩 객체를 에러 없이 안전하게 접근 가능
 - 존재하지 않는 요소에 접근해서 정보를 가져오려고 하면 에러가 발생하는데 이 문제를 해결하기 위한 방법
 - 존재하지 않아도 괜찮은 대상에만 사용해야 함
-- 
+
+
+### Symbol
+- 객체 프로퍼티 키로 문자형과 심볼형만을 허용함
+- 유일한 식별자(unique identifier)를 만들고 싶을 때 사용
+- `Symbol()`을 사용해 생성, `id`라는 설명을 추가해 생성하고 싶다면 `Symbol(id)`로 생성
+- 설명이 동일한 여러개의 심볼을 만들어도 각 심볼 값은 다름
+- 문자형으로 자동 형 변환 되지 않음 (alert 사용 안됨)
+- `symbol.description` 이용하면 설명만 보여주는 것도 가능
+
+
+### Symbol - hidden property
+- 외부 코드에서 접근이 불가능하고 덮어쓸 수 없는 프로퍼티
+- 대괄호를 사용해 심볼형 키를 만들 수 있음
+- for-in 반복문에서 제외 됨
+- `Object.assign`은 키가 심볼인 프로퍼티도 포함하여 복사함
+
+
+
+
+
+## object6.js
+
+
+
+### Converting object to primitive type
+
